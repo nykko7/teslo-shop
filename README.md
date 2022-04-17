@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js Teslop Shop - Ecommerce Demo
 
-## Getting Started
+## Configuración Proyecto:
 
-First, run the development server:
+### 1.- Configurar variables de entorno:
 
-```bash
-npm run dev
-# or
-yarn dev
+Renombrar el archivo **.env.template** a **.env**
+
+### 2.- Iniciar contenedor de Docker:
+
+Para correr localmente, se necesita ejecutar la base de datos MongoDB de un contenedor de Docker.
+
+```
+yarn docker
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+o
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```
+docker-compose up -d
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- El `-d`, significa **detached** (El contenedor se ejecuta en el fondo, despegada, de la terminal. )
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### 3.-Llenar base de datos con información de prueba
 
-## Learn More
+Llamar al endpoint :
 
-To learn more about Next.js, take a look at the following resources:
+```
+http://localhost:3000/api/seed
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4.- Reconstruir los módulos de node y levantar Next:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+yarn
+yarn dev
+```
